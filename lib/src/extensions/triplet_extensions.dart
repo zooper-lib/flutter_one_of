@@ -18,16 +18,16 @@ extension TripletExtensions<T0, T1, T2> on Triplet<T0, T1, T2> {
   }
 
   void on<R>({
-    required void Function(T0) first,
-    required void Function(T1) second,
-    required void Function(T2) third,
+    void Function(T0)? first,
+    void Function(T1)? second,
+    void Function(T2)? third,
   }) {
     if (isFirst) {
-      return first(this.first);
+      return first?.call(this.first);
     } else if (isSecond) {
-      return second(this.second);
+      return second?.call(this.second);
     } else if (isThird) {
-      return third(this.third);
+      return third?.call(this.third);
     } else {
       throw Exception('Triplet is empty');
     }

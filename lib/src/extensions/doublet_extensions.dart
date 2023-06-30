@@ -15,13 +15,13 @@ extension DoubletExtensions<T0, T1> on Doublet<T0, T1> {
   }
 
   void on<R>({
-    required void Function(T0) first,
-    required void Function(T1) second,
+    void Function(T0)? first,
+    void Function(T1)? second,
   }) {
     if (isFirst) {
-      return first(this.first);
+      return first?.call(this.first);
     } else if (isSecond) {
-      return second(this.second);
+      return second?.call(this.second);
     } else {
       throw Exception('Doublet is empty');
     }

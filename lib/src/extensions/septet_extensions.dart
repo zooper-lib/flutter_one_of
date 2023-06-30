@@ -30,28 +30,28 @@ extension SeptetExtensions<T0, T1, T2, T3, T4, T5, T6> on Septet<T0, T1, T2, T3,
   }
 
   void on<R>({
-    required void Function(T0) first,
-    required void Function(T1) second,
-    required void Function(T2) third,
-    required void Function(T3) fourth,
-    required void Function(T4) fifth,
-    required void Function(T5) sixth,
-    required void Function(T6) seventh,
+    void Function(T0)? first,
+    void Function(T1)? second,
+    void Function(T2)? third,
+    void Function(T3)? fourth,
+    void Function(T4)? fifth,
+    void Function(T5)? sixth,
+    void Function(T6)? seventh,
   }) {
     if (isFirst) {
-      return first(this.first);
+      return first?.call(this.first);
     } else if (isSecond) {
-      return second(this.second);
+      return second?.call(this.second);
     } else if (isThird) {
-      return third(this.third);
+      return third?.call(this.third);
     } else if (isFourth) {
-      return fourth(this.fourth);
+      return fourth?.call(this.fourth);
     } else if (isFifth) {
-      return fifth(this.fifth);
+      return fifth?.call(this.fifth);
     } else if (isSixth) {
-      return sixth(this.sixth);
+      return sixth?.call(this.sixth);
     } else if (isSeventh) {
-      return seventh(this.seventh);
+      return seventh?.call(this.seventh);
     } else {
       throw Exception('Septet is empty');
     }
