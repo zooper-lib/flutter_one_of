@@ -1,5 +1,5 @@
 library flutter_one_of;
 
-export 'extensions/index.dart';
-export 'one_ofs/index.dart';
-export 'types/index.dart';
+export 'src/extensions/index.dart';
+export 'src/one_ofs/index.dart';
+export 'src/types/index.dart';
